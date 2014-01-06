@@ -1,16 +1,30 @@
 {% extends 'BlogBlogBundle::layout.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
-    <div class="row">
-        <div class="col-md-4">
-            {{ form_widget(form.name) }}
-            {{ form_widget(form.email) }}
-            {{ form_widget(form.createdAt) }}
-        </div>
-        <div class="col-md-8">
-            {{ form_widget(form.text) }}
+    <div class="page-header">
+        <h1>Bootstrap grid examples</h1>
+        <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+             {{ form_start(form) }}
+             {{ form_errors(form) }}
+                 <div class="row">
+                     <div class="col-md-2">
+                         {{ form_widget(form.name) }}
+                         {{ form_widget(form.email) }}
+                         {{ form_widget(form.submit) }}
+                    </div>
+
+                    <div class="col-md-2">
+                        {{ form_widget(form.createdAt) }}
+                    </div>
+
+                    <div class="col-md-8">
+                        {{ form_widget(form.text) }}
+                    </div>
+                </div>
         </div>
     </div>
+
 {% endblock %}
