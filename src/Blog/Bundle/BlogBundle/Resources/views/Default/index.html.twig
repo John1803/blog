@@ -1,1 +1,16 @@
-Hello {{ name }}!
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+    <div class="row">
+        <div class="col-md-4">
+            {{ form_widget(form.name) }}
+            {{ form_widget(form.email) }}
+            {{ form_widget(form.createdAt) }}
+        </div>
+        <div class="col-md-8">
+            {{ form_widget(form.text) }}
+        </div>
+    </div>
+{% endblock %}

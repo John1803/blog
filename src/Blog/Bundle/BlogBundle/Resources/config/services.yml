@@ -1,7 +1,17 @@
-parameters:
-#    blog_blog.example.class: Blog\Bundle\BlogBundle\Example
-
 services:
-#    blog_blog.example:
-#        class: %blog_blog.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    form.type.message:
+        class: Blog\Bundle\BlogBundle\Form\Type\MessageType
+        tags:
+            - { name: form.type, alias: message }
+
+    creed_guestbook.pagination:
+        class: Creed\GuestbookBundle\PagePagination
+        arguments:
+            - @doctrine.orm.entity_manager
+        calls:
+            - [setPerPage, [10]]
+
+    twig.extension.text:
+           class: Twig_Extensions_Extension_Text
+           tags:
+               - { name: twig.extension }
