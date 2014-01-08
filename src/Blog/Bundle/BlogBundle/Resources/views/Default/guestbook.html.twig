@@ -1,0 +1,64 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+    <div class="container">
+        <div class="jumbotron">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="row">
+                <div class="col-md-2">
+                    {{ form_widget(form.name) }}
+                    {{ form_widget(form.email) }}
+                    {{ form_widget(form.submit) }}
+                </div>
+
+                <div class="col-md-2">
+                    {{ form_widget(form.createdAt) }}
+                </div>
+
+                <div class="col-md-8">
+                    {{ form_widget(form.text) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <div class="container">
+        <div class="col-md-12">
+            {% block content %}
+                <div class="row">
+                    <div class="col-md-12">
+                        {% for message in messages %}
+                            <div class="col-lg-12">{{ message.theme }}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"> {{ message.user }}
+                                </div>
+                                <div class="col-md-2"> {{ message.email }}
+                                </div>
+                                <div class="col-md-2"> {{ message.createdAt|date('Y-m-d') }}
+                                </div>
+                            </div>
+                            <p class="col-lg-12 well">{{ message.text|truncate(83, '...') }}</p>
+
+
+
+                            <hr/>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+
+    {% block footer %}
+        <footer>
+            <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+
+                <h4 class="col-md-12 text-center"> {{ pagerfanta(messages) }}</h4>
+            </div>
+        </footer>
+    {% endblock %}
+{% endblock %}

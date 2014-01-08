@@ -36,7 +36,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "twbs/bootstrap": "3.0.0",
         "jquery/jquery": "1.10.2",
-        "braincrafted/bootstrap-bundle": "v2.0.0"
+        "braincrafted/bootstrap-bundle": "v2.0.0",
+        "white-october/pagerfanta-bundle": "dev-master"
     },
 
     "scripts": {

@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class MessageRepository extends EntityRepository
 {
+    public function findAllOrderByCreate()
+    {
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.createdAt')
+            ->getQuery()
+            ;
+    }
 }

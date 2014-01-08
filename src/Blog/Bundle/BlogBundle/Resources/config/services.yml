@@ -4,8 +4,8 @@ services:
         tags:
             - { name: form.type, alias: message }
 
-    creed_guestbook.pagination:
-        class: Creed\GuestbookBundle\PagePagination
+    blog.pagination:
+        class: Blog\Bundle\BlogBundle\PagePagination
         arguments:
             - @doctrine.orm.entity_manager
         calls:

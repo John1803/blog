@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="jumbotron">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="row">
+            <div class="col-md-2">
+                {{ form_widget(form.name) }}
+                {{ form_widget(form.email) }}
+                {{ form_widget(form.submit) }}
+            </div>
+
+            <div class="col-md-2">
+                {{ form_widget(form.createdAt) }}
+            </div>
+
+            <div class="col-md-8">
+                {{ form_widget(form.text) }}
+            </div>
+        </div>
+    </div>
+</div>

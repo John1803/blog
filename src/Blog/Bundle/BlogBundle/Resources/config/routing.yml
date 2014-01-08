@@ -1,3 +1,7 @@
-guestbook:
-    pattern:  /gbook
+home_page:
+    path: /index
     defaults: { _controller: BlogBlogBundle:Default:index }
+
+guestbook:
+    path:  /gbook
+    defaults: { _controller: BlogBlogBundle:Default:guestbook }
