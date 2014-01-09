@@ -10,6 +10,17 @@ class DefaultController extends Controller
     {
         return $this->render('BlogBlogBundle:Default:index.html.twig');
     }
+
+    public function aboutAction()
+    {
+        return $this->render('BlogBlogBundle:Default:about.html.twig');
+    }
+
+    public function postAction()
+    {
+        return $this->render('BlogBlogBundle:Default:post.html.twig');
+    }
+
     public function guestbookAction()
     {
         $message = max(1, (int) $this->getRequest()->query->get('message'));

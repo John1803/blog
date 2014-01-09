@@ -1,6 +1,14 @@
 home_page:
-    path: /index
+    path: /
     defaults: { _controller: BlogBlogBundle:Default:index }
+
+about_page:
+    path: /about
+    defaults: { _controller: BlogBlogBundle:Default:about }
+
+post_page:
+    path: /post
+    defaults: { _controller: BlogBlogBundle:Default:post }
 
 guestbook:
     path:  /gbook

@@ -37,7 +37,8 @@
         "twbs/bootstrap": "3.0.0",
         "jquery/jquery": "1.10.2",
         "braincrafted/bootstrap-bundle": "v2.0.0",
-        "white-october/pagerfanta-bundle": "dev-master"
+        "white-october/pagerfanta-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "v1.1.0"
     },
 
     "scripts": {
