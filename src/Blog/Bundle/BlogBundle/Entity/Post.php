@@ -86,6 +86,14 @@ class Post
 
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="visitedIncrement", type="integer")
+     */
+
+    private $visitedIncrement;
+
+    /**
      * Get id
      *
      * @return integer
@@ -271,4 +279,21 @@ class Post
     {
         return $this->createdAt;
     }
+
+    /**
+     * @param int $visitedIncrement
+     */
+    public function setVisitedIncrement($visitedIncrement)
+    {
+        $this->visitedIncrement = $visitedIncrement;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVisitedIncrement()
+    {
+        return $this->visitedIncrement;
+    }
+
 }

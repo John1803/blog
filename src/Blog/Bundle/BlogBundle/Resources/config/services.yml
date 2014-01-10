@@ -15,3 +15,10 @@ services:
            class: Twig_Extensions_Extension_Text
            tags:
                - { name: twig.extension }
+
+    blog_blog_bundle:
+        class: Blog\Bundle\BlogBundle\EventListener\PostVisitedListener
+        arguments:
+            - @doctrine.orm.entity_manager
+        tags:
+            - { name: kernel.event_listener, event: blog_blog_bundle.post_visited, method: onPostVisited }
