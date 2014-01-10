@@ -15,7 +15,7 @@ class PostFixtures implements FixtureInterface
         $category = new Category();
         $category ->setTitle('Symfony')
             ->setDescription('About Framework')
-            ;
+        ;
         $postOne = new Post();
         $postOne->setTitle('What is Lorem Ipsum?')
             ->setPost('Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -31,7 +31,8 @@ class PostFixtures implements FixtureInterface
             ->setCategory($category)
             ->setTags('Literature, Symfony, tags')
             ->setCreatedAt(new \DateTime())
-            ;
+            ->setvisitedIncrement(0)
+        ;
 
         $manager->persist($category);
         $manager->persist($postOne);
@@ -53,6 +54,7 @@ class PostFixtures implements FixtureInterface
             ->setImage('Cicero.jpg')
             ->setCategory($category)
             ->setTags('Language, Js')
+            ->setVisitedIncrement(0)
             ->setCreatedAt(new \DateTime('2014-01-01 13:12'))
         ;
 
@@ -71,6 +73,7 @@ class PostFixtures implements FixtureInterface
             ->setImage('model.jpg')
             ->setCategory($category)
             ->setTags('JSON, MySQL, SQLite')
+            ->setVisitedIncrement(0)
             ->setCreatedAt(new \DateTime('2014-02-01 17:13'))
         ;
 
@@ -78,4 +81,4 @@ class PostFixtures implements FixtureInterface
         $manager->flush();
 
     }
-} 
+}

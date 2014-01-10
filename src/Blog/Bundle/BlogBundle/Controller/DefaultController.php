@@ -4,13 +4,23 @@ namespace Blog\Bundle\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blog\Bundle\BlogBundle\Entity\Message;
-
+use Blog\Bundle\BlogBundle\Entity\MessageRepository;
+use Blog\Bundle\BlogBundle\Form\Type\MessageType;
+use Blog\Bundle\BlogBundle\Entity\Post;
+use Blog\Bundle\BlogBundle\Entity\PostRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BlogBlogBundle:Default:index.html.twig');
+        $om = $this->getDoctrine()->getManager();
+        $repository = $om->getRepository('BlogBlogBundle:Post');
+        $posts = $repository->findAllByNewest();
+
+        return $this->render('BlogBlogBundle:Default:index.html.twig', array(
+            'posts' => $posts,
+        ));
     }
 
     public function aboutAction()

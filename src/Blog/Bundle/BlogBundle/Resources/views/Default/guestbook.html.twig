@@ -54,9 +54,8 @@
 
     {% block footer %}
         <footer>
-            <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-
-                <h4 class="col-md-12 text-center"> {{ pagerfanta(messages) }}</h4>
+            <div class="navbar navbar-default navbar-fixed-bottom">
+                <h4 class="col-md-12 text-center pagerfanta"> {{ pagerfanta(messages) }}</h4>
             </div>
         </footer>
     {% endblock %}

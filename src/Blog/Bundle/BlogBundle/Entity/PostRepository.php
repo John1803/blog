@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    public function findAllByNewest()
+    {
+        return $this->createQueryBuilder('p')
+            ->OrderBy('p.createdAt')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

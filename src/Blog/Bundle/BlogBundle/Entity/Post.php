@@ -270,6 +270,8 @@ class Post
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
     }
 
     /**
@@ -286,6 +288,8 @@ class Post
     public function setVisitedIncrement($visitedIncrement)
     {
         $this->visitedIncrement = $visitedIncrement;
+
+        return $this;
     }
 
     /**

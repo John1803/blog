@@ -16,13 +16,13 @@ class PostVisitedListener
 
         public function onPostVisited(PostVisitedEvent $event)
     {
-        $om = $this->em->getManager();
+        $em = $this->em->getManager();
 
         /**
          * @var \Doctrine\ORM\Query $query
          */
 
-        $query = $om->createQuery(
+        $query = $em->createQuery(
             'UPDATE BlogBlogBundle:Post p
             SET p.visitedIncrement = p.visitedIncrement + 1
             WHERE p.id = :post_id')

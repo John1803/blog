@@ -3,13 +3,33 @@
 {% block body %}
     {{ parent() }}
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                {% block postsidebar %}<h1>qwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuio</h1>{% endblock %}
-            </div>
-            <div class="col-md-4">
-                {% block sidebar %}<h1>qwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuioqwertyuiop qwertyyuio</h1>{% endblock %}
-            </div>
-        </div>
+          {% for post in posts %}
+                <article class="post">
+                    <h2>{{ post.title }}</h2>
+                    <div class="date">
+                        <time datetime="{{ post.createdAt|date('c') }}">{{ post.createdAt|date('l, F j, Y') }}
+                        </time>
+                    </div>
+
+                    <img src="{{ asset(['images/', post.image]|join) }}" alt="{{ post.title }} image not found" class="large" />
+                    <div>
+                        <p>{{ post.post }}</p>
+                    </div>
+
+                    <div class="snippet">
+                        <p>{{ post.post(500) }}</p>
+                        <p class="continue">
+                            <a href="{{ path('show_post_page', { 'id': post.id }) }}">Continue...</a>
+                        </p>
+                    </div>
+
+                    <footer class="meta">
+                        <p>Posted by <span class="highlight">{{post.author}}</span> at {{ post.createdAt|date('h:iA') }}</p>
+                        <p>Tags: <span class="highlight">{{ post.tags }}</span></p>
+                    </footer>
+                </article>
+          {% else %}
+                <p>There are no posts((</p>
+          {% endfor %}
     </div>
 {% endblock %}
