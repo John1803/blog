@@ -3,11 +3,12 @@
 namespace Blog\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
  *
- * @ORM\Table()
+ * @ORM\Table(name="posts")
  * @ORM\Entity(repositoryClass="Blog\Bundle\BlogBundle\Entity\PostRepository")
  */
 class Post
@@ -25,6 +26,8 @@ class Post
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min="13", max="255")
      */
     private $title;
 
@@ -32,6 +35,8 @@ class Post
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(min="13", max="100")
      */
     private $author;
 
@@ -39,6 +44,8 @@ class Post
      * @var string
      *
      * @ORM\Column(name="post", type="text")
+     * @Assert\NotBlank
+     * @Assert\Length(min="100")
      */
     private $post;
 
@@ -50,6 +57,14 @@ class Post
     private $image;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     *
+     */
+    private $createdAt;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="tags", type="string", length=17)
@@ -57,24 +72,23 @@ class Post
     private $tags;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comments", type="text")
-     */
-    private $comments;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="comments", type="text")
+//     */
+//    private $comments;
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -97,7 +111,7 @@ class Post
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -120,7 +134,7 @@ class Post
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -143,7 +157,7 @@ class Post
     /**
      * Get post
      *
-     * @return string 
+     * @return string
      */
     public function getPost()
     {
@@ -166,7 +180,7 @@ class Post
     /**
      * Get image
      *
-     * @return string 
+     * @return string
      */
     public function getImage()
     {
@@ -189,7 +203,7 @@ class Post
     /**
      * Get tags
      *
-     * @return string 
+     * @return string
      */
     public function getTags()
     {
@@ -199,8 +213,8 @@ class Post
     /**
      * Set category
      *
-     * @param string $category
-     * @return Post
+     * @param $category
+     * @return $this
      */
     public function setCategory($category)
     {
@@ -210,35 +224,51 @@ class Post
     }
 
     /**
-     * Get category
+     *  Get category
      *
-     * @return string 
+     * @return integer
      */
     public function getCategory()
     {
         return $this->category;
     }
 
-    /**
-     * Set comments
-     *
-     * @param string $comments
-     * @return Post
-     */
-    public function setComments($comments)
-    {
-        $this->comments = $comments;
+//    /**
+//     * Set comments
+//     *
+//     * @param string $comments
+//     * @return Post
+//     */
+//    public function setComments($comments)
+//    {
+//        $this->comments = $comments;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get comments
+//     *
+//     * @return string
+//     */
+//    public function getComments()
+//    {
+//        return $this->comments;
+//    }
 
-        return $this;
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
     }
 
     /**
-     * Get comments
-     *
-     * @return string 
+     * @return \DateTime
      */
-    public function getComments()
+    public function getCreatedAt()
     {
-        return $this->comments;
+        return $this->createdAt;
     }
 }

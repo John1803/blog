@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title>Blog</title>
+    {% block title %}
+        <title>Blog</title>
+    {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
-
+    {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    {% endblock %}
     <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
     {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
@@ -16,8 +18,8 @@
 {% block body %}
     <div class="container">
         <div class="page-header">
-            <h1>Bootstrap grid examples</h1>
-            <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+            <h1>HEADER</h1>
+            <p class="lead">There will be some info or image lately</p>
         </div>
     </div>
     <div class="container">

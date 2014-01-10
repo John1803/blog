@@ -21,6 +21,7 @@
                     {{ form_widget(form.text) }}
                 </div>
             </div>
+            {{ form_rest(form) }}
         </div>
     </div>
     <div class="row">
@@ -30,11 +31,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         {% for message in messages %}
-                            <div class="col-lg-12">{{ message.theme }}
+                            <div class="col-lg-12">{{ message.name }}
                             </div>
                             <div class="row">
-                                <div class="col-md-2"> {{ message.user }}
-                                </div>
                                 <div class="col-md-2"> {{ message.email }}
                                 </div>
                                 <div class="col-md-2"> {{ message.createdAt|date('Y-m-d') }}

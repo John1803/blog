@@ -3,11 +3,12 @@
 namespace Blog\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Message
  *
- * @ORM\Table()
+ * @ORM\Table(name="messages")
  * @ORM\Entity(repositoryClass="Blog\Bundle\BlogBundle\Entity\MessageRepository")
  */
 class Message
@@ -25,6 +26,7 @@ class Message
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=100)
+     * @Assert\NotBlank
      */
     private $name;
 
@@ -32,6 +34,8 @@ class Message
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
@@ -46,6 +50,8 @@ class Message
      * @var string
      *
      * @ORM\Column(name="text", type="text")
+     * @Assert\NotBlank
+     * @Assert\Length(min="100")
      */
     private $text;
 

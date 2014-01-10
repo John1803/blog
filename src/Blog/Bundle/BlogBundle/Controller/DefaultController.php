@@ -3,6 +3,8 @@
 namespace Blog\Bundle\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Blog\Bundle\BlogBundle\Entity\Message;
+
 
 class DefaultController extends Controller
 {
@@ -19,6 +21,18 @@ class DefaultController extends Controller
     public function postAction()
     {
         return $this->render('BlogBlogBundle:Default:post.html.twig');
+    }
+
+    public function showPostAction($id)
+    {
+        $om = $this->getDoctrine()->getManager();
+        $post = $om->getRepository('BlogBlogBundle:Post')->find($id);
+
+        if (!$post) {
+            throw $this->createNotFoundException('The post is not found!');
+        }
+
+        return $this->render('BlogBlogBundle:Default:showPost.html.twig', array('post' => $post));
     }
 
     public function guestbookAction()
