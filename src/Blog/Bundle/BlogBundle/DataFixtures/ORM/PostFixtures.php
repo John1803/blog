@@ -2,12 +2,13 @@
 
 namespace Blog\Bundle\BlogBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Blog\Bundle\BlogBundle\Entity\Post;
 use Blog\Bundle\BlogBundle\Entity\Category;
 
-class PostFixtures implements FixtureInterface
+class PostFixtures extends AbstractFixture implements OrderedFixtureInterface
 
 {
     public function load(ObjectManager $manager)
@@ -80,5 +81,14 @@ class PostFixtures implements FixtureInterface
         $manager->persist($postThree);
         $manager->flush();
 
+        $this->addReference('postOne', $postOne);
+        $this->addReference('postTwo', $postTwo);
+        $this->addReference('postThree', $postThree);
+
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }

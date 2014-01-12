@@ -21,6 +21,12 @@
                 <p>{{ post.post }}</p>
             </div>
         </article>
+        <section class="comments" id="comments">
+            <section class="pre-comments">
+                <h2>Comments</h2>
+                {% include 'BlogBlogBundle:Default:comment.html.twig' with {'comment': 'comments'} %}
+            </section>
+        </section>
     </div>
 {% endblock %}
 

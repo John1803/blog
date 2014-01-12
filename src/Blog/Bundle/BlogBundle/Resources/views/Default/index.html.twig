@@ -13,11 +13,10 @@
 
                     <img src="{{ asset(['images/', post.image]|join) }}" alt="{{ post.title }} image not found" class="large" />
                     <div>
-                        <p>{{ post.post }}</p>
+                        <p>{{ post.post|truncate(83, '...') }}</p>
                     </div>
 
                     <div class="snippet">
-                        <p>{{ post.post(500) }}</p>
                         <p class="continue">
                             <a href="{{ path('show_post_page', { 'id': post.id }) }}">Continue...</a>
                         </p>

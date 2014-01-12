@@ -2,6 +2,7 @@
 
 namespace Blog\Bundle\BlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -77,12 +78,10 @@ class Post
      */
     private $category;
 
-//    /**
-//     * @var string
-//     *
-//     * @ORM\Column(name="comments", type="text")
-//     */
-//    private $comments;
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    private $comments;
 
 
     /**
@@ -93,6 +92,11 @@ class Post
 
     private $visitedIncrement;
 
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -241,28 +245,28 @@ class Post
         return $this->category;
     }
 
-//    /**
-//     * Set comments
-//     *
-//     * @param string $comments
-//     * @return Post
-//     */
-//    public function setComments($comments)
-//    {
-//        $this->comments = $comments;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get comments
-//     *
-//     * @return string
-//     */
-//    public function getComments()
-//    {
-//        return $this->comments;
-//    }
+    /**
+     * Set comments
+     *
+     * @param string $comments
+     * @return Post
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return string
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 
     /**
      * @param \DateTime $createdAt

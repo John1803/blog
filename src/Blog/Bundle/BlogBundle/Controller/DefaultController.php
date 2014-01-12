@@ -42,7 +42,13 @@ class DefaultController extends Controller
             throw $this->createNotFoundException('The post is not found!');
         }
 
-        return $this->render('BlogBlogBundle:Default:showPost.html.twig', array('post' => $post));
+        $comments = $om->getRepository('BlogBlogBundle:Comment')
+            ->findCommentForPost($post->getId());
+
+        return $this->render('BlogBlogBundle:Default:showPost.html.twig', array(
+            'post' => $post,
+            'comments' => $comments,
+        ));
     }
 
     public function guestbookAction()
