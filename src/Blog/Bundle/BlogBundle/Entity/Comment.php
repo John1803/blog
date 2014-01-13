@@ -3,6 +3,7 @@
 namespace Blog\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Comment
@@ -25,6 +26,7 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="user", type="string", length=100)
+     * @Assert\NotBlank
      */
     private $user;
 
@@ -32,15 +34,10 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="comment", type="text")
+     * @Assert\NotBlank
+     * @Assert\Length(min="100")
      */
     private $comment;
-
-//    /**
-//     * @var boolean
-//     *
-//     * @ORM\Column(name="approved", type="boolean")
-//     */
-//    private $approved;
 
     /**
      * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
@@ -48,12 +45,12 @@ class Comment
      */
     private $post;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdAt", type="datetime")
-     */
-    private $createdAt;
+//    /**
+//     * @var \DateTime
+//     *
+//     * @ORM\Column(name="createdAt", type="datetime")
+//     */
+//    private $createdAt;
 
 
     /**
@@ -113,29 +110,6 @@ class Comment
     }
 
     /**
-     * Set approved
-     *
-     * @param boolean $approved
-     * @return Comment
-     */
-//    public function setApproved($approved)
-//    {
-//        $this->approved = $approved;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get approved
-//     *
-//     * @return boolean
-//     */
-//    public function getApproved()
-//    {
-//        return $this->approved;
-//    }
-
-    /**
      * Set post
      *
      * @param string $post
@@ -158,26 +132,26 @@ class Comment
         return $this->post;
     }
 
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Comment
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+//    /**
+//     * Set createdAt
+//     *
+//     * @param \DateTime $createdAt
+//     * @return Comment
+//     */
+//    public function setCreatedAt($createdAt)
+//    {
+//        $this->createdAt = $createdAt;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get createdAt
+//     *
+//     * @return \DateTime
+//     */
+//    public function getCreatedAt()
+//    {
+//        return $this->createdAt;
+//    }
 }

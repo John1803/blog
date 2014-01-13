@@ -21,12 +21,17 @@
                 <p>{{ post.post }}</p>
             </div>
         </article>
+    </div>
+    <div class="container">
         <section class="comments" id="comments">
             <section class="pre-comments">
                 <h2>Comments</h2>
-                {% include 'BlogBlogBundle:Default:comment.html.twig' with {'comment': 'comments'} %}
+                {% include 'BlogBlogBundle:Default:comment.html.twig' with {'comment': comments} %}
             </section>
+            <h3>Add Comment</h3>
+            {{ render(controller('BlogBlogBundle:Default:formComment', { 'post_id': post.id })) }}
         </section>
     </div>
+
 {% endblock %}
 

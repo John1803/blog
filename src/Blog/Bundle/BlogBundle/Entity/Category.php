@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Category
  *
- * @ORM\Table(name="categories")
+ * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="Blog\Bundle\BlogBundle\Entity\CategoryRepository")
  */
 class Category
@@ -21,13 +21,6 @@ class Category
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-//    /**
-//     * @var string
-//     *
-//     * @ORM\Column(name="name", type="string", length=255)
-//     */
-//    private $name;
 
     /**
      * @var string

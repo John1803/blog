@@ -24,7 +24,7 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
                         truncus dolamine effigiatus vel cespes libamine umigatus vel lapis unguine
                         delibutus. Parva haec quippe et quamquam paucis percontantibus adorata,
                         tamen ignorantibus transcursa.')
-            ->setCreatedAt(new \DateTime('2014-02-04 13:13'))
+//            ->setCreatedAt(new \DateTime('2014-02-04 13:13'))
 //            ->setApproved(true)
             ->setPost($manager->merge($this->getReference('postOne')));
 
@@ -40,7 +40,7 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
                            minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent
                            important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter
                            bellum gerunt.')
-            ->setCreatedAt(new \DateTime('2014-02-01 17:13'))
+//            ->setCreatedAt(new \DateTime('2014-02-01 17:13'))
 //            ->setApproved(true)
             ->setPost($manager->merge($this->getReference('postTwo')));
 
@@ -56,7 +56,7 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
                            minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent
                            important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter
                            bellum gerunt.')
-            ->setCreatedAt(new \DateTime('2014-02-08 16:13'))
+//            ->setCreatedAt(new \DateTime('2014-02-08 16:13'))
 //            ->setApproved(true)
             ->setPost($manager->merge($this->getReference('postTwo')));
 
@@ -74,7 +74,7 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
                         truncus dolamine effigiatus vel cespes libamine umigatus vel lapis unguine
                         delibutus. Parva haec quippe et quamquam paucis percontantibus adorata,
                         tamen ignorantibus transcursa.')
-            ->setCreatedAt(new \DateTime('2014-02-01 17:13'))
+//            ->setCreatedAt(new \DateTime('2014-02-01 17:13'))
 //            ->setApproved(true)
             ->setPost($manager->merge($this->getReference('postThree')));
 

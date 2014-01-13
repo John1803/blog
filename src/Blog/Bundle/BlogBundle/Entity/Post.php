@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Post
  *
- * @ORM\Table(name="posts")
+ * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="Blog\Bundle\BlogBundle\Entity\PostRepository")
  */
 class Post
@@ -302,6 +302,11 @@ class Post
     public function getVisitedIncrement()
     {
         return $this->visitedIncrement;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 
 }

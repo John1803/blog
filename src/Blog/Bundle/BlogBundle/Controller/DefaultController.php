@@ -2,12 +2,14 @@
 
 namespace Blog\Bundle\BlogBundle\Controller;
 
+use Blog\Bundle\BlogBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blog\Bundle\BlogBundle\Entity\Message;
 use Blog\Bundle\BlogBundle\Entity\MessageRepository;
 use Blog\Bundle\BlogBundle\Form\Type\MessageType;
 use Blog\Bundle\BlogBundle\Entity\Post;
 use Blog\Bundle\BlogBundle\Entity\PostRepository;
+use Blog\Bundle\BlogBundle\Entity\Comment;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -49,6 +51,58 @@ class DefaultController extends Controller
             'post' => $post,
             'comments' => $comments,
         ));
+    }
+
+    public function formCommentAction($post_id)
+    {
+        $post = $this->getPost($post_id);
+
+        $comment = new Comment();
+        $comment->setPost($post);
+        $form   = $this->createForm(new CommentType(), $comment);
+
+        return $this->render('BlogBlogBundle:Default:form.html.twig', array(
+            'comment' => $comment,
+            'form'   => $form->createView()
+        ));
+    }
+    public function createCommentAction($post_id)
+    {
+        $post = $this->getPost($post_id);
+        $comment = new Comment();
+        $comment->setPost($post);
+        $form = $this->createForm(new CommentType(), $comment);
+
+        $form->handleRequest($this->getRequest());
+        if ($form->isValid()) {
+            $om = $this->getDoctrine()->getManager();
+            $om->persist($form->getData());
+            $om->flush();
+
+            return $this->redirect($this->generateUrl('show_post_page', array(
+                    'id' => $comment->getPost()->getId())) .
+                '#comment-' . $comment->getId());
+        }
+
+        return $this->render('BlogBlogBundle:Default:createComment.html.twig', array(
+            'comment' => $comment,
+            'form' => $form->createView(),
+        ));
+
+
+    }
+
+    public function getPost($post_id)
+    {
+        $om = $this->getDoctrine()->getManager();
+        $post = $om->getRepository('BlogBlogBundle:Post')->find($post_id);
+
+        if (!$post) {
+            throw $this->createNotFoundException('The post is not found!');
+        }
+
+        return $post;
+
     }
 
     public function guestbookAction()

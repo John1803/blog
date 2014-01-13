@@ -1,0 +1,26 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1>Add comment for blog post "{{ comment.post.title }}"</h1>
+    {% include 'BlogBlogBundle:Default:form.html.twig' with { 'form': form } %}
+{% endblock %}
+
+{#{% block body %}#}
+    {#<div class="container">#}
+        {#{{ form_start(form, { 'action': path('comment_page', { 'post_id' : comment.post.id }) }) }}#}
+        {#{{ form_errors(form) }}#}
+        {#<div class="row">#}
+            {#<div class="col-md-4">#}
+                {#{{ form_widget(form.user) }}#}
+            {#</div>#}
+            {#<div class="col-md-8">#}
+                {#{{ form_widget(form.comment) }}#}
+            {#</div>#}
+            {#&#123;&#35;{{ form_widget(form.createdAt) }}&#35;&#125;#}
+            {#<div class="col-md-8">#}
+                {#{{ form_widget(form.submit) }}#}
+            {#</div>#}
+        {#{{ form_rest(form) }}#}
+        {#</div>#}
+    {#</div>#}
+{#{% endblock %}#}
