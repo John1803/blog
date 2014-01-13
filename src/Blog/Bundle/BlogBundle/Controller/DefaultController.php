@@ -53,19 +53,6 @@ class DefaultController extends Controller
         ));
     }
 
-    public function formCommentAction($post_id)
-    {
-        $post = $this->getPost($post_id);
-
-        $comment = new Comment();
-        $comment->setPost($post);
-        $form   = $this->createForm(new CommentType(), $comment);
-
-        return $this->render('BlogBlogBundle:Default:form.html.twig', array(
-            'comment' => $comment,
-            'form'   => $form->createView()
-        ));
-    }
     public function createCommentAction($post_id)
     {
         $post = $this->getPost($post_id);
