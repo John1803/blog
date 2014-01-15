@@ -16,7 +16,7 @@ services:
            tags:
                - { name: twig.extension }
 
-    blog_blog_bundle:
+    blog_blog_bundle.post_visited_listener:
         class: Blog\Bundle\BlogBundle\EventListener\PostVisitedListener
         arguments:
             - @doctrine.orm.entity_manager

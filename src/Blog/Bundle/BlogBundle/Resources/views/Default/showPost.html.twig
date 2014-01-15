@@ -28,10 +28,10 @@
                 <h2>Comments</h2>
                 {% include 'BlogBlogBundle:Default:comment.html.twig' with {'comment': comments} %}
             </section>
-            <h3>Add Comment</h3>
             {{ render(controller('BlogBlogBundle:Default:createComment', { 'post_id': post.id })) }}
         </section>
     </div>
+
 
 {% endblock %}
 

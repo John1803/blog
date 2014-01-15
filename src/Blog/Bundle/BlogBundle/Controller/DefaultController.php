@@ -67,7 +67,7 @@ class DefaultController extends Controller
             $om->flush();
 
             return $this->redirect($this->generateUrl('show_post_page', array(
-                    'id' => $comment->getPost()->getId())) .
+                'id' => $comment->getPost()->getId())) .
                 '#comment-' . $comment->getId());
         }
 

@@ -14,15 +14,14 @@ show_post_page:
     path: /{id}
     defaults: { _controller: BlogBlogBundle:Default:showPost }
     requirements:
-#          id: \d+
+         id: \d+
 
 
 comment_page:
     path: /comment/{post_id}
     defaults: { _controller: BlogBlogBundle:Default:createComment }
     requirements:
-#          post_id: \d+
-
+          post_id: \d+
 guestbook:
     path:  /gbook
     defaults: { _controller: BlogBlogBundle:Default:guestbook }

@@ -23,7 +23,9 @@
                     </div>
 
                     <footer class="meta">
-                        <p>Posted by <span class="highlight">{{post.author}}</span> at {{ post.createdAt|date('h:iA') }}</p>
+                        <footer class="meta">
+                            {{ post.comments }}
+                        <p>Posted by <span class="highlight">{{ post.author }}</span> at {{ post.createdAt|date('h:iA') }}</p>
                         <p>Tags: <span class="highlight">{{ post.tags }}</span></p>
                     </footer>
                 </article>

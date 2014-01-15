@@ -15,6 +15,8 @@ class PostRepository extends EntityRepository
     public function findAllByNewest()
     {
         return $this->createQueryBuilder('p')
+            ->select('p', 'c')
+            ->leftJoin('p.comments', 'c')
             ->OrderBy('p.createdAt')
             ->getQuery()
             ->getResult()

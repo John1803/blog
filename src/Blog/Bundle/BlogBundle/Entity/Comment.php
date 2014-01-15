@@ -35,7 +35,7 @@ class Comment
      *
      * @ORM\Column(name="comment", type="text")
      * @Assert\NotBlank
-     * @Assert\Length(min="100")
+     * @Assert\Length(min="3")
      */
     private $comment;
 

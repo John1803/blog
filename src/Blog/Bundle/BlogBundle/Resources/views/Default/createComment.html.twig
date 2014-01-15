@@ -2,6 +2,9 @@
 
 {% block body %}
     <div class="container">
+        <h1>Add comment for post "{{ comment.post.title }}"</h1>
+    </div>
+    <div class="container">
         {{ form_start(form, { 'action': path('comment_page', { 'post_id' : comment.post.id }) }) }}
         {{ form_errors(form) }}
         <div class="row">

@@ -1,16 +1,16 @@
-<div class="container">
-       {{ form_start(form, { 'action': path('comment_page', { 'post_id' : comment.post.id }) }) }}
-       {{ form_errors(form) }}
-       <div class="row">
-           <div class="col-md-4">
-               {{ form_widget(form.user) }}
-           </div>
-           <div class="col-md-8">
-               {{ form_widget(form.comment) }}
-           </div>
-            <div class="col-md-8">
-               {{ form_widget(form.submit) }}
-           </div>
-       {{ form_rest(form) }}
-       </div>
-</div>
+{#<div class="container">#}
+       {#{{ form_start(form, { 'action': path('comment_page', { 'post_id' : comment.post.id }) }) }}#}
+       {#{{ form_errors(form) }}#}
+       {#<div class="row">#}
+           {#<div class="col-md-4">#}
+               {#{{ form_widget(form.user) }}#}
+           {#</div>#}
+           {#<div class="col-md-8">#}
+               {#{{ form_widget(form.comment) }}#}
+           {#</div>#}
+            {#<div class="col-md-8">#}
+               {#{{ form_widget(form.submit) }}#}
+           {#</div>#}
+       {#{{ form_rest(form) }}#}
+       {#</div>#}
+{#</div>#}
