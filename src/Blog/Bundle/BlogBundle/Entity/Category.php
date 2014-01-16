@@ -40,7 +40,6 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="posts")
      * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
      */
     private $posts;
