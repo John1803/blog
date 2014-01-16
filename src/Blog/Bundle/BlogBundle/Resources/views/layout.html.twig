@@ -36,9 +36,28 @@
         </div>
     </div>
 
-    {% block footer %}
+    {#<div class="container">#}
+        {#<div class="row">#}
+            {#<div class="col-md-8">#}
+                {#{% block content %}{% endblock %}#}
+            {#</div>#}
+            {#<div class="col-md-4">#}
+                {#{% block sidebar %}{% endblock %}#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 
+    <div id="footer">
+        {% block footer %}
+        {% endblock %}
+    </div>
+    </div>
+
+
+
+    {% block javascripts %}
     {% endblock %}
+
 {% endblock %}
 
 <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->

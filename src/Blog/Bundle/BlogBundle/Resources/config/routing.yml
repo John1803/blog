@@ -22,6 +22,16 @@ comment_page:
     defaults: { _controller: BlogBlogBundle:Default:createComment }
     requirements:
           post_id: \d+
+
+#post_show_by_tag:
+#    path: /bytag/{id}
+#    defaults: { _controller: BlogBlogBundle:Default:showByTag}
+
+post_show_by_category:
+    path: /category/{slug}
+    defaults: { _controller: BlogBlogBundle:Default:showByCategory }
+
+
 guestbook:
     path:  /gbook
     defaults: { _controller: BlogBlogBundle:Default:guestbook }

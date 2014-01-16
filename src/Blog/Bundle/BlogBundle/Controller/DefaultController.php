@@ -3,6 +3,8 @@
 namespace Blog\Bundle\BlogBundle\Controller;
 
 use Blog\Bundle\BlogBundle\Form\Type\CommentType;
+use Pagerfanta\Adapter\DoctrineCollectionAdapter;
+use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blog\Bundle\BlogBundle\Entity\Message;
 use Blog\Bundle\BlogBundle\Entity\MessageRepository;
@@ -10,6 +12,7 @@ use Blog\Bundle\BlogBundle\Form\Type\MessageType;
 use Blog\Bundle\BlogBundle\Entity\Post;
 use Blog\Bundle\BlogBundle\Entity\PostRepository;
 use Blog\Bundle\BlogBundle\Entity\Comment;
+use Blog\Bundle\BlogBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -30,9 +33,32 @@ class DefaultController extends Controller
         return $this->render('BlogBlogBundle:Default:about.html.twig');
     }
 
-    public function postAction()
+    public function showByCategoryAction($slug)
     {
-        return $this->render('BlogBlogBundle:Default:post.html.twig');
+        $om = $this->getDoctrine()->getManager();
+        $category = $om->getRepository('BlogBlogBundle:Category')->findOneBySlug($slug);
+        $categoryTitle = $category->getTitle();
+        $posts = $category->getPosts();
+//        $adapter = new DoctrineCollectionAdapter($posts);
+//        $pagerPost = new Pagerfanta($adapter);
+//        $pagerPost->setMaxPerPage(7);
+        return $this->render('BlogBlogBundle:Default:index.html.twig', array(
+           'posts' => $posts,
+           'category' => $categoryTitle,
+        ));
+
+    }
+
+
+    public function sidebarAction()
+    {
+        $om = $this->getDoctrine()->getManager();
+        $tags = $om->$this->getRepository('BlogBlogBundle:Tag')->getTags();
+        $tagWeights = $om->$this->getRepository('BlogBlogBundle:Tag')->getTagWeights($tags);
+
+        return $this->render('BlogBlogBundle:Default:sidebar.html.twig', array(
+            'tags' => $tagWeights,
+        ));
     }
 
     public function showPostAction($id)

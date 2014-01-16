@@ -3,6 +3,7 @@
 namespace Blog\Bundle\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -58,19 +59,17 @@ class Post
     private $image;
 
     /**
-     * @var \DateTime
-     *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="createdAt", type="datetime")
      *
      */
     private $createdAt;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tags", type="string", length=17)
-     */
-    private $tags;
+//    /**
+//     *
+//     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="posts")
+//     */
+//    private $tags;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
@@ -199,28 +198,28 @@ class Post
         return $this->image;
     }
 
-    /**
-     * Set tags
-     *
-     * @param string $tags
-     * @return Post
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return string
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
+//    /**
+//     * Set tags
+//     *
+//     * @param string $tags
+//     * @return Post
+//     */
+//    public function setTags($tags)
+//    {
+//        $this->tags = $tags;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get tags
+//     *
+//     * @return string
+//     */
+//    public function getTags()
+//    {
+//        return $this->tags;
+//    }
 
     /**
      * Set category

@@ -2,35 +2,49 @@
 
 {% block body %}
     {{ parent() }}
+    {#{% block content %}#}
     <div class="container">
-          {% for post in posts %}
-                <article class="post">
-                    <h2>{{ post.title }}</h2>
-                    <div class="date">
-                        <time datetime="{{ post.createdAt|date('c') }}">{{ post.createdAt|date('l, F j, Y') }}
-                        </time>
-                    </div>
+        {% for post in posts %}
+            <article class="post">
+                <h2>{{ post.title }}</h2>
+                <div class="date">
+                    <time datetime="{{ post.createdAt|date('c') }}">{{ post.createdAt|date('l, F j, Y') }}
+                    </time>
+                </div>
 
-                    <img src="{{ asset(['images/', post.image]|join) }}" alt="{{ post.title }} image not found" class="large" />
-                    <div>
-                        <p>{{ post.post|truncate(83, '...') }}</p>
-                    </div>
+                <img src="{{ asset(['images/', post.image]|join) }}" alt="{{ post.title }} image not found" class="large" />
+                <div>
+                    <p>{{ post.post|truncate(83, '...') }}</p>
+                </div>
 
-                    <div class="snippet">
-                        <p class="continue">
-                            <a href="{{ path('show_post_page', { 'id': post.id }) }}">Continue...</a>
-                        </p>
-                    </div>
+                <div class="snippet">
+                    <p class="continue">
+                        <a href="{{ path('show_post_page', { 'id': post.id }) }}">Continue...</a>
+                    </p>
+                </div>
 
-                    <footer class="meta">
-                        <footer class="meta">
-                            {{ post.comments }}
-                        <p>Posted by <span class="highlight">{{ post.author }}</span> at {{ post.createdAt|date('h:iA') }}</p>
-                        <p>Tags: <span class="highlight">{{ post.tags }}</span></p>
-                    </footer>
-                </article>
-          {% else %}
-                <p>There are no posts((</p>
-          {% endfor %}
+                <footer class="meta">
+                    <p>Posted by <span class="highlight">{{ post.author }}</span> at {{ post.createdAt|date('h:iA') }}</p>
+                    <p>Category:</p>
+                    {#{% for tag in post.getTags() %}#}
+                    {#<a href="{{ path('post_show_by_tag', {'id':tag.getId()}) }}">#}
+                        {#{{ tag.getName }}#}
+                    {#</a>#}
+                    <a href="{{ path('post_show_by_category', { 'slug': post.category.slug }) }}">
+                        {{ post.category.title }}
+                    </a>
+                </footer>
+            </article>
+        {% else %}
+            <p>There are no posts((</p>
+        {% endfor %}
     </div>
+    {#{% endblock %}#}
 {% endblock %}
+{#{% block footer %}#}
+    {#{% if posts.haveToPaginate %}#}
+        {#{{ pagerfanta(posts) }}#}
+
+    {#{% endif %}#}
+
+{#{% endblock footer %}#}

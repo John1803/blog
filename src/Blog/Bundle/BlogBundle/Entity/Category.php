@@ -3,6 +3,7 @@
 namespace Blog\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -30,19 +31,19 @@ class Category
     private $title;
 
     /**
+     *
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(type="string", length=100, unique=true)
+     */
+    protected $slug;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="posts")
      * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
      */
     private $posts;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255)
-     */
-    private $description;
 
     public function __construct()
     {
@@ -59,29 +60,6 @@ class Category
     {
         return $this->id;
     }
-
-//    /**
-//     * Set name
-//     *
-//     * @param string $name
-//     * @return Category
-//     */
-//    public function setName($name)
-//    {
-//        $this->name = $name;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get name
-//     *
-//     * @return string
-//     */
-//    public function getName()
-//    {
-//        return $this->name;
-//    }
 
     /**
      * Set title
@@ -130,25 +108,22 @@ class Category
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     * @return Category
+     * @param mixed $slug
      */
-    public function setDescription($description)
+    public function setSlug($slug)
     {
-        $this->description = $description;
+        $this->slug = $slug;
 
         return $this;
     }
 
     /**
-     * Get description
-     *
-     * @return string 
+     * @return mixed
      */
-    public function getDescription()
+    public function getSlug()
     {
-        return $this->description;
+        return $this->slug;
     }
+
+
 }
