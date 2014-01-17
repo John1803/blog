@@ -2,7 +2,6 @@
 
 {#{% block title %}{{ post.title }}{% endblock %}#}
 {% block stylesheets %}
-
     <link href="{{ asset('bundles/blogblog/css/showPost.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
@@ -31,7 +30,4 @@
             {{ render(controller('BlogBlogBundle:Default:createComment', { 'post_id': post.id })) }}
         </section>
     </div>
-
-
 {% endblock %}
-

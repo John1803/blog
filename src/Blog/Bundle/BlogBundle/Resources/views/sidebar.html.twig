@@ -2,11 +2,11 @@
     <header>
         <h3>Tag Cloud</h3>
     </header>
-    <p class="tags">
+    <div class="tags">
         {% for tag, weight in tags %}
         <span class="weight-{{ weight }}">{{ tag }}</span>
         {% else %}
     <p>There are no tags</p>
     {% endfor %}
-    </p>
+    </div>
 </section>

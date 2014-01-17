@@ -1,9 +1,12 @@
 {% extends 'BlogBlogBundle::layout.html.twig' %}
 
-{% block body %}
-{{ parent() }}
+{#{% block body %}#}
+{#{{ parent() }}#}
+{#{% block body %}#}
+    {#{{ parent() }}#}
     {% block content %}
-    <div class="container">
+    {#<div class="container">#}
+        {#<div class="col-md-10">#}
         {% for post in posts %}
             <article class="post">
                 <h2>{{ post.title }}</h2>
@@ -35,13 +38,16 @@
         {% else %}
             <p>There are no posts((</p>
         {% endfor %}
-    </div>
+        {#</div>#}
+    {#</div>#}
     {% endblock %}
 
     {% block sidebar %}
         {{ render(controller('BlogBlogBundle:Default:sidebar')) }}
     {% endblock %}
-{% endblock %}
+{#{% endblock %}#}
+
+
 {#{% block footer %}#}
     {#{% if posts.haveToPaginate %}#}
         {#{{ pagerfanta(posts) }}#}
