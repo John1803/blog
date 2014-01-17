@@ -2,7 +2,7 @@
 
 {% block body %}
     {{ parent() }}
-    {#{% block content %}#}
+    {% block content %}
     <div class="container">
         {% for post in posts %}
             <article class="post">
@@ -25,21 +25,18 @@
 
                 <footer class="meta">
                     <p>Posted by <span class="highlight">{{ post.author }}</span> at {{ post.createdAt|date('h:iA') }}</p>
-                    <p>Category:</p>
-                    {#{% for tag in post.getTags() %}#}
-                    {#<a href="{{ path('post_show_by_tag', {'id':tag.getId()}) }}">#}
-                        {#{{ tag.getName }}#}
-                    {#</a>#}
-                    <a href="{{ path('post_show_by_category', { 'slug': post.category.slug }) }}">
+                    <p>Tags: <span class="highlight">{{ post.tags }}</span></p>
+                    <p>Category: <a href="{{ path('post_show_by_category', { 'slug': post.category.slug }) }}">
                         {{ post.category.title }}
                     </a>
+                    </p>
                 </footer>
             </article>
         {% else %}
             <p>There are no posts((</p>
         {% endfor %}
     </div>
-    {#{% endblock %}#}
+    {% endblock %}
 {% endblock %}
 {#{% block footer %}#}
     {#{% if posts.haveToPaginate %}#}

@@ -32,6 +32,12 @@
 //
 //    /**
 //     *
+//     * @Gedmo\Slug(fields={"title"})
+//     * @ORM\Column(type="string", length=100, unique=true)
+//     */
+//    protected $slug;
+//
+//    /**
 //     * @ORM\ManyToMany(targetEntity="Post", inversedBy="tags")
 //     */
 //    private $posts;
@@ -93,4 +99,22 @@
 //    {
 //        return $this->posts;
 //    }
+//
+//    /**
+//     * @param mixed $slug
+//     */
+//    public function setSlug($slug)
+//    {
+//        $this->slug = $slug;
+//    }
+//
+//    /**
+//     * @return mixed
+//     */
+//    public function getSlug()
+//    {
+//        return $this->slug;
+//    }
+//
+//
 //}

@@ -49,15 +49,16 @@ class DefaultController extends Controller
 
     }
 
-
     public function sidebarAction()
     {
         $om = $this->getDoctrine()->getManager();
-        $tags = $om->$this->getRepository('BlogBlogBundle:Tag')->getTags();
-        $tagWeights = $om->$this->getRepository('BlogBlogBundle:Tag')->getTagWeights($tags);
 
-        return $this->render('BlogBlogBundle:Default:sidebar.html.twig', array(
-            'tags' => $tagWeights,
+        $tags = $om->getRepository('BlogBlogBundle:Post')->getTags();
+
+        $tagWeights = $om->getRepository('BlogBlogBundle:Post')->getTagWeights($tags);
+
+        return $this->render('BlogBlogBundle::sidebar.html.twig', array(
+            'tags' => $tagWeights
         ));
     }
 

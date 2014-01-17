@@ -22,4 +22,51 @@ class PostRepository extends EntityRepository
             ->getResult()
             ;
     }
+
+    public function getTags()
+    {
+        $postTags = $this->createQueryBuilder('p')
+            ->select('p.tags')
+            ->getQuery()
+            ->getResult();
+
+
+        $tags = array();
+        foreach ($postTags as $postTag)
+        {
+            $tags = array_merge(explode(",", $postTag['tags']), $tags);
+        }
+
+        foreach ($tags as &$tag)
+        {
+            $tag = trim($tag);
+        }
+
+        return $tags;
+    }
+
+    public function getTagWeights($tags)
+    {
+        $tagWeights = array();
+
+        if(empty($tags)) {
+            return $tagWeights;
+        }
+
+        foreach ($tags as $tag)
+        {
+            $tagWeights[$tag] = (isset($tagWeights[$tag])) ? $tagWeights[$tag]+1 : 1;
+        }
+
+        $max = max($tagWeights);
+
+        $multiple = ($max > 5) ? 5 / $max :1;
+        foreach ($tagWeights as &$tag)
+        {
+            $tag = ceil($tag * $multiple);
+        }
+
+        return $tagWeights;
+
+    }
 }

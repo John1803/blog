@@ -31,6 +31,10 @@ post_show_by_category:
     path: /category/{slug}
     defaults: { _controller: BlogBlogBundle:Default:showByCategory }
 
+#post_show_by_tag:
+#    path: /tag/{slug}
+#    defaults: { _controller: BlogBlogBundle:Default:showByTag }
+
 
 guestbook:
     path:  /gbook

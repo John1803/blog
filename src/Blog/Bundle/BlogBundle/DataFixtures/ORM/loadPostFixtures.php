@@ -30,8 +30,8 @@ class PostFixtures extends AbstractFixture implements OrderedFixtureInterface
                 ->setAuthor($item['author'])
                 ->setPost($item['post'])
                 ->setVisitedIncrement($item['visited'])
-                ->setCategory($this->getReference($item['category']));
-//                ->setTags($this->getReferencesFromArray($item['tags']));
+                ->setCategory($this->getReference($item['category']))
+                ->setTags($item['tags']);
 
             $manager->persist($post);
         }

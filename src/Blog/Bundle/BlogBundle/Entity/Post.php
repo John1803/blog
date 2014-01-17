@@ -65,11 +65,11 @@ class Post
      */
     private $createdAt;
 
-//    /**
-//     *
-//     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="posts")
-//     */
-//    private $tags;
+    /**
+     *
+     * @ORM\Column(name="tags", type="text")
+     */
+    private $tags;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
@@ -197,28 +197,28 @@ class Post
         return $this->image;
     }
 
-//    /**
-//     * Set tags
-//     *
-//     * @param string $tags
-//     * @return Post
-//     */
-//    public function setTags($tags)
-//    {
-//        $this->tags = $tags;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get tags
-//     *
-//     * @return string
-//     */
-//    public function getTags()
-//    {
-//        return $this->tags;
-//    }
+    /**
+     * Set tags
+     *
+     * @param string $tags
+     * @return Post
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 
     /**
      * Set category

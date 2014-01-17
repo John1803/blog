@@ -5,11 +5,15 @@ posts:
         author: Semanto
         visited: 0
         post: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        tags: HTML, CSS
         category: Symfony
+
     2:
         title: Nunc vestibulum varius vulputate
         pictureName: Cicero.jpg
         author: Fertyr
         visited: 2
         post: Pellentesque quis enim venenatis ante suscipit vulputate. In eget rhoncus nulla. Aenean non convallis lorem, ut laoreet purus. Vestibulum laoreet metus at tincidunt gravida. Suspendisse vel semper orci. Sed id enim vulputate, molestie massa eu, condimentum mauris. Ut non volutpat sapien. Integer vitae dapibus erat. Proin volutpat, erat et lacinia aliquet, libero odio dapibus metus, et porttitor magna risus nec orci. Morbi nec suscipit nisl. Nam ut quam vel velit luctus mattis a nec urna. Curabitur quis blandit nulla. Morbi laoreet scelerisque nisi, ac vehicula arcu tempus id. Mauris sit amet velit mauris.
+        tags: JS, Python
         category: JS
+
