@@ -8,7 +8,7 @@ use Symfony\Component\EventDispatcher\Event;
 
 class PostVisitedEvent extends Event
 {
-    private $post;
+    protected $post;
 
     /**
      * @param Post $post

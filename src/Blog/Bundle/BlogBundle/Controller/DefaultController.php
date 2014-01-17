@@ -14,6 +14,7 @@ use Blog\Bundle\BlogBundle\Entity\PostRepository;
 use Blog\Bundle\BlogBundle\Entity\Comment;
 use Blog\Bundle\BlogBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Request;
+use Blog\Bundle\BlogBundle\Event\PostVisitedEvent;
 
 class DefaultController extends Controller
 {
@@ -64,15 +65,20 @@ class DefaultController extends Controller
 
     public function showPostAction($id)
     {
-        $om = $this->getDoctrine()->getManager();
-        $post = $om->getRepository('BlogBlogBundle:Post')->find($id);
+        $postRepository = $this->get('blog_blog_bundle.post.repository');
+        $post = $postRepository->find($id);
 
         if (!$post) {
             throw $this->createNotFoundException('The post is not found!');
         }
+        $commentRepository = $this->get('blog_blog_bundle.comment.repository');
+        $comments = $commentRepository->findCommentForPost($post->getId());
 
-        $comments = $om->getRepository('BlogBlogBundle:Comment')
-            ->findCommentForPost($post->getId());
+        $event = new PostVisitedEvent();
+        $event->setPost($post);
+
+        $eventDispatcher = $this->get('event_dispatcher');
+        $eventDispatcher->dispatch('blog_blog_bundle.post_visited', $event);
 
         return $this->render('BlogBlogBundle:Default:showPost.html.twig', array(
             'post' => $post,

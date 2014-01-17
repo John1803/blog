@@ -2,33 +2,38 @@
 
 namespace Blog\Bundle\BlogBundle\EventListener;
 
+use Blog\Bundle\BlogBundle\Entity\PostRepository;
 use Doctrine\ORM\EntityManager;
 use Blog\Bundle\BlogBundle\Event\PostVisitedEvent;
 
 class PostVisitedListener
 {
-    private $em;
+    protected $repository;
 
-    public function __construct(EntityManager $em)
+    public function __construct(PostRepository $repository)
     {
-        $this->em = $em;
+        $this->repository = $repository;
     }
 
-        public function onPostVisited(PostVisitedEvent $event)
+    public function onPostVisited(PostVisitedEvent $event)
     {
-        $em = $this->em->getManager();
+        $this->repository->visitedIncrement($event->getPost()->getId());
 
-        /**
-         * @var \Doctrine\ORM\Query $query
-         */
 
-        $query = $em->createQuery(
-            'UPDATE BlogBlogBundle:Post p
-            SET p.visitedIncrement = p.visitedIncrement + 1
-            WHERE p.id = :post_id')
-            ->setParameter(':post_id', $event->getPost()->getId()
-            );
-
-        $query->execute();
+//        $em = $this->em->getManager();
+//
+//        /**
+//         * @var \Doctrine\ORM\Query $query
+//         */
+//
+//        $query = $em->createQuery(
+//            'UPDATE BlogBlogBundle:Post p
+//            SET p.visitedIncrement = p.visitedIncrement + 1
+//            WHERE p.id = :post_id')
+//            ->setParameter(':post_id', $event->getPost()->getId()
+//            );
+//
+//        $query->execute();
+//    }
     }
-    }
+}

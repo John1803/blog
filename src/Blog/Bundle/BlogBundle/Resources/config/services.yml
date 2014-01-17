@@ -22,3 +22,4 @@ services:
             - @doctrine.orm.entity_manager
         tags:
             - { name: kernel.event_listener, event: blog_blog_bundle.post_visited, method: onPostVisited }
+

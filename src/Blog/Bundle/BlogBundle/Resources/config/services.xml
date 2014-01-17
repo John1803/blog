@@ -1,0 +1,41 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--<parameters>-->
+        <!--<parameter key="value.setPerPage">10</parameter>-->
+    <!--</parameters>-->
+
+    <services>
+        <service id="blog.pagination" class="Blog\Bundle\BlogBundle\PagePagination">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <call method="setPerPage">
+                <argument key="value">10</argument>
+            </call>
+        </service>
+
+        <service id="form.type.message" class="Blog\Bundle\BlogBundle\Form\Type\MessageType">
+            <tag name="form.type" alias="message" />
+        </service>
+
+         <service id="twig.extension.text" class="Twig_Extensions_Extension_Text">
+            <tag name="twig.extension" />
+         </service>
+
+        <service id="blog_blog_bundle.post.repository" class="Blog\Bundle\BlogBundle\Entity\PostRepository" factory-service="doctrine.orm.entity_manager" factory-method="getRepository">
+            <argument>BlogBlogBundle:Post</argument>
+        </service>
+
+        <service id="blog_blog_bundle.comment.repository" class="Blog\Bundle\BlogBundle\Entity\CommentRepository" factory-service="doctrine.orm.entity_manager" factory-method="getRepository">
+            <argument>BlogBlogBundle:Comment</argument>
+        </service>
+
+        <service id="blog_blog_bundle.post_visited_listener" class="Blog\Bundle\BlogBundle\EventListener\PostVisitedListener">
+            <argument type="service" id="blog_blog_bundle.post.repository" />
+            <tag name="kernel.event_listener" event="blog_blog_bundle.post_visited" method="onPostVisited" />
+        </service>
+    </services>
+
+</container>
+
+

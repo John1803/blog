@@ -1,7 +1,7 @@
 {% extends 'BlogBlogBundle::layout.html.twig' %}
 
 {% block body %}
-    {{ parent() }}
+{{ parent() }}
     {% block content %}
     <div class="container">
         {% for post in posts %}
@@ -14,7 +14,7 @@
 
                 <img src="{{ asset(['images/', post.image]|join) }}" alt="{{ post.title }} image not found" class="large" />
                 <div>
-                    <p>{{ post.post|truncate(83, '...') }}</p>
+                    <p>{{ post.post|truncate(200, '...') }}</p>
                 </div>
 
                 <div class="snippet">
@@ -36,6 +36,10 @@
             <p>There are no posts((</p>
         {% endfor %}
     </div>
+    {% endblock %}
+
+    {% block sidebar %}
+        {{ render(controller('BlogBlogBundle:Default:sidebar')) }}
     {% endblock %}
 {% endblock %}
 {#{% block footer %}#}

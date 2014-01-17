@@ -2,12 +2,12 @@
 
 {#{% block title %}{{ post.title }}{% endblock %}#}
 {% block stylesheets %}
-    {{ parent() }}
+
     <link href="{{ asset('bundles/blogblog/css/showPost.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
+{{ parent() }}
     <div class="container">
         <article class="post">
             <h2>{{ post.title }}</h2>

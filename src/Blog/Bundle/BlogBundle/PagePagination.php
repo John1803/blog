@@ -20,9 +20,9 @@ class PagePagination
         $this->em = $em;
     }
 
-    public function setPerPage($value)
+    public function setPerPage($perPage)
     {
-        $this->perPage = $value;
+        $this->perPage = $perPage;
     }
 
     public function pagination($message)
