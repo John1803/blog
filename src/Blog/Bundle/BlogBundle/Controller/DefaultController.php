@@ -56,14 +56,14 @@ class DefaultController extends Controller
         $posts = $this->get('blog_blog_bundle.post.repository');
         $popularPosts = $posts->mostPopularPosts();
 
-        $om = $this->getDoctrine()->getManager();
+        $lastPosts = $posts->getLastPosts();
 
-        $tags = $om->getRepository('BlogBlogBundle:Post')->getTags();
-
-        $tagWeights = $om->getRepository('BlogBlogBundle:Post')->getTagWeights($tags);
+        $tags = $posts->getTags();
+        $tagWeights = $posts->getTagWeights($tags);
 
         return $this->render('BlogBlogBundle::sidebar.html.twig', array(
             'popularPosts' => $popularPosts,
+            'lastPosts' => $lastPosts,
             'tags' => $tagWeights
 
         ));

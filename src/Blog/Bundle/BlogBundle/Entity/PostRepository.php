@@ -33,6 +33,16 @@ class PostRepository extends EntityRepository
             ;
     }
 
+    public function getLastPosts()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     public function visitedIncrement($id)
     {
         $query = $this->getEntityManager()

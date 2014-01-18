@@ -1,7 +1,14 @@
 <section class="section">
     <section>
+        <h1>Popular Posts</h1>
         {% for popular in popularPosts %}
-            <a href="">{{ popular.title }}
+            {{ popular.title }}
+        {% endfor %}
+    </section>
+    <section>
+        <h1>Last Posts</h1>
+        {% for last in lastPosts %}
+            {{ last.title }}
         {% endfor %}
     </section>
     <section>
