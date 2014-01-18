@@ -15,9 +15,10 @@ class PostVisitedEvent extends Event
      */
     public function setPost(Post $post)
     {
-        return $this->post;
-    }
+        $this->post = $post;
 
+        return $post;
+    }
 
     /**
      * @return Post

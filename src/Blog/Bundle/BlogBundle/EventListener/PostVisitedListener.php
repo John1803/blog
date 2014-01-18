@@ -17,6 +17,7 @@ class PostVisitedListener
 
     public function onPostVisited(PostVisitedEvent $event)
     {
+
         $this->repository->visitedIncrement($event->getPost()->getId());
 
 

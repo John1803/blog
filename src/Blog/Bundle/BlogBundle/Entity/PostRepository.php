@@ -36,10 +36,7 @@ class PostRepository extends EntityRepository
     public function visitedIncrement($id)
     {
         $query = $this->getEntityManager()
-            ->createQuery(
-                'UPDATE BlogBlogBundle:Post p
-                 SET p.visitedIncrement = p.visitedIncrement + 1
-                 WHERE p.id = :post_id')
+            ->createQuery('UPDATE BlogBlogBundle:Post p SET p.visitedIncrement = p.visitedIncrement + 1 WHERE p.id = :post_id')
             ->setParameter(':post_id', $id);
 
         $query->execute();
