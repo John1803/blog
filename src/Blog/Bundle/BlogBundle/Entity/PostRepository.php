@@ -23,11 +23,11 @@ class PostRepository extends EntityRepository
             ;
     }
 
-    public function mostPopularPosts($limit)
+    public function mostPopularPosts()
     {
         return $this->createQueryBuilder('p')
             ->orderBy('p.visitedIncrement', 'DESC')
-            ->setMaxResults($limit)
+            ->setMaxResults(7)
             ->getQuery()
             ->getResult()
             ;

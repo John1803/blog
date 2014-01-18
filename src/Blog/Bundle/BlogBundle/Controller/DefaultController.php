@@ -53,6 +53,9 @@ class DefaultController extends Controller
 
     public function sidebarAction()
     {
+        $posts = $this->get('blog_blog_bundle.post.repository');
+        $popularPosts = $posts->mostPopularPosts();
+
         $om = $this->getDoctrine()->getManager();
 
         $tags = $om->getRepository('BlogBlogBundle:Post')->getTags();
@@ -60,7 +63,9 @@ class DefaultController extends Controller
         $tagWeights = $om->getRepository('BlogBlogBundle:Post')->getTagWeights($tags);
 
         return $this->render('BlogBlogBundle::sidebar.html.twig', array(
+            'popularPosts' => $popularPosts,
             'tags' => $tagWeights
+
         ));
     }
 
