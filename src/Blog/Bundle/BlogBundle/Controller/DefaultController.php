@@ -78,8 +78,8 @@ class DefaultController extends Controller
         $event = new PostVisitedEvent();
         $event->setPost($post);
 
-//        $eventDispatcher = $this->get('event_dispatcher');
-//        $eventDispatcher->dispatch('blog_blog_bundle.post_visited', $event);
+        $eventDispatcher = $this->get('event_dispatcher');
+        $eventDispatcher->dispatch('blog_blog_bundle.post_visited', $event);
 
         return $this->render('BlogBlogBundle:Default:showPost.html.twig', array(
             'post' => $post,
