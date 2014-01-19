@@ -9,11 +9,110 @@ posts:
         category: Symfony
 
     2:
-        title: Nunc vestibulum varius vulputate
+        title: Where does it come from?
         pictureName: Cicero.jpg
         author: Fertyr
         visited: 2
-        post: Pellentesque quis enim venenatis ante suscipit vulputate. In eget rhoncus nulla. Aenean non convallis lorem, ut laoreet purus. Vestibulum laoreet metus at tincidunt gravida. Suspendisse vel semper orci. Sed id enim vulputate, molestie massa eu, condimentum mauris. Ut non volutpat sapien. Integer vitae dapibus erat. Proin volutpat, erat et lacinia aliquet, libero odio dapibus metus, et porttitor magna risus nec orci. Morbi nec suscipit nisl. Nam ut quam vel velit luctus mattis a nec urna. Curabitur quis blandit nulla. Morbi laoreet scelerisque nisi, ac vehicula arcu tempus id. Mauris sit amet velit mauris.
+        post: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
         tags: JS, Python
         category: JS
+
+    3:
+        title: Why does we use it?
+        pictureName: Lorem.jpg
+        author: Usabilist
+        visited: 5
+        post: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+        tags: Ruby
+        category: Framework
+
+    4:
+        title: Where can I get come?
+        pictureName: where.jpg
+        author: Findist
+        visited: 1
+        post: There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+        tags: Joomla
+        category: SEO
+
+    5:
+        title: Paragraph creater
+        pictureName: paragraf.jpg
+        author: Paragrafist
+        visited: 13
+        post: Proin eget sollicitudin eros. Curabitur condimentum adipiscing magna, vitae tempor nunc sollicitudin a. Morbi fringilla tellus nunc, ac vehicula mi pellentesque ut. Fusce ac neque vitae diam suscipit ullamcorper at non tellus. Vivamus rutrum metus orci. Maecenas pharetra mattis nisi at lacinia. Morbi faucibus venenatis consectetur. Donec luctus quis sapien vel consectetur. Phasellus nec accumsan lacus, ac fermentum augue. Suspendisse id ante justo. Etiam et urna lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut eget turpis ut magna blandit dictum eu at libero. Curabitur non purus sed neque suscipit viverra. Vivamus vel sodales neque.
+        tags: Geekhub
+        category: SEO
+
+    6:
+        title: How does LI creat dummy text from words?
+        pictureName: word.jpg
+        author: Wordist
+        visited: 1
+        post: Etiam vel nibh et sem accumsan tempor. Pellentesque facilisis augue vitae velit sagittis vehicula. Quisque eget feugiat arcu, eget lobortis quam. Pellentesque vehicula tristique elit lobortis pharetra. Maecenas vulputate ultrices suscipit. Nulla nisi augue, iaculis eget est eget, consectetur egestas ligula. Curabitur cursus sollicitudin nisi in vehicula. Mauris nulla velit, pretium id ante non, scelerisque porta lectus. Integer tincidunt mollis leo. Aliquam eget tempor nulla. Quisque laoreet diam magna, nec placerat turpis volutpat in. Maecenas mattis fermentum magna at volutpat. Donec fringilla felis enim, in convallis nisl varius sed. Nullam molestie eros tellus, et pulvinar lectus vulputate eget. Nunc id metus turpis. Nam eget justo erat. Mauris lacinia aliquam enim, at ultrices nisl.
+        tags: Wordpress
+        category: SEO
+
+    7:
+        title: Bytes-container of LI
+        pictureName: bytes.jpj
+        author: Bytist
+        visited: 5
+        post: Nam at fringilla felis. Curabitur turpis ipsum, ultrices vitae tincidunt euismod, faucibus vitae nisl. Proin quis volutpat lorem, ut pulvinar tortor. Aenean id lacus sodales, pharetra eros id, consequat est. Duis eu sapien vitae magna mollis feugiat at non enim. Fusce pharetra, risus ac facilisis consectetur, sem lectus rutrum massa, sed posuere lorem risus pharetra nunc. Fusce ultrices congue sagittis. Nam id tortor ultrices, ornare massa nec, ullamcorper urna. Quisque ligula turpis, sollicitudin pretium feugiat a, posuere quis nisi. Curabitur nisl metus, aliquam mollis est id, pellentesque blandit nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras eu gravida leo. Pellentesque ut leo et magna vehicula dapibus id.
+        tags: Security
+        category: Symfony
+
+    8:
+        title: Lists
+        pictureName: lists.jpg
+        author: listist
+        visited: 8
+        post: Praesent non felis sit amet turpis vulputate egestas vel sed lectus. Sed et nibh ultricies, commodo metus at, mollis quam. Nullam rutrum orci ut consectetur tristique. In consectetur ante et odio ultrices, eu vehicula enim ultricies. Vivamus ullamcorper neque ut interdum mollis. Nunc ut ligula sit amet justo luctus aliquet. Proin sed ante porta, ultrices ligula ut, porttitor risus. Phasellus sagittis lectus vitae aliquet viverra. Aliquam sed magna ac turpis tincidunt euismod. In posuere eros vitae nibh sodales, eget ornare nisi tempus. Sed dapibus ligula a dui consequat, nec mollis eros ornare. Fusce blandit mi nec turpis accumsan, vel porttitor est auctor. Phasellus consectetur nulla vel nunc sagittis tristique. Mauris tempor mauris vel neque lacinia, eu pulvinar enim venenatis. Nunc eu nulla egestas sapien pellentesque condimentum in nec elit. Etiam non arcu sit amet lectus tincidunt molestie. In in dui eleifend nulla mattis pharetra quis eu dolor. Aliquam viverra arcu a mauris auctor, a egestas tortor pellentesque. Aenean laoreet quam id ipsum ultrices lobortis a ac magna.
+        tags: Drupal
+        category: JS
+
+    9:
+        title: The standard Lorem Ipsum passage, used since the 1500s
+        pictureName: standart.jpg
+        author: Standartist
+        visited: 9
+        post: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        tags: Bolt
+        category: Symfony
+
+    10:
+        title: Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+        pictureName: Section.jpg
+        author: Sectionist
+        visited: 11
+        post: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        tags: Bolt
+        category: JS
+
+    11:
+        title: 1914 translation by H. Rackham
+        pictureName: 1914.jpg
+        author: H.Rakham
+        visited: 2
+        post: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+        tags: Wordpress
+        category: SEO
+
+    12:
+        title: Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+        pictureName: finibus.jpg
+        author: Sectinist
+        visited: 13
+        post: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        tags: HTML
+        category: Framework
+
+    13:
+        title: 1914 translation by H. Rackham
+        pictureName: 1914.jpg
+        author: H. Rackham
+        visited: 2
+        post: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+        tags: CSS
+        category: Symfony
 

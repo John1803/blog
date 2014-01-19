@@ -2,13 +2,13 @@
     <section>
         <h1>Popular Posts</h1>
         {% for popular in popularPosts %}
-            {{ popular.title }}
+           <div><a href="{{ path('show_post_page', { 'id': popular.id }) }}"> {{ popular.title }} </a></div>
         {% endfor %}
     </section>
     <section>
         <h1>Last Posts</h1>
         {% for last in lastPosts %}
-            {{ last.title }}
+            <div><a href="{{ path('show_post_page', { 'id': last.id }) }}"> {{ last.title }} </a></div>
         {% endfor %}
     </section>
     <section>

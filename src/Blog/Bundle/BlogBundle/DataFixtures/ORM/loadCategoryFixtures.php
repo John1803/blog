@@ -28,6 +28,8 @@ class CategoryFixtures extends AbstractFixture implements OrderedFixtureInterfac
         return array(
             "Symfony",
             "JS",
+            "Framework",
+            "SEO",
             "Geekhub",
             "Literature",
 
