@@ -3,6 +3,7 @@
 namespace Blog\Bundle\BlogBundle\Controller;
 
 use Blog\Bundle\BlogBundle\Form\Type\CommentType;
+use Blog\Bundle\BlogBundle\Form\Type\PostType;
 use Pagerfanta\Adapter\DoctrineCollectionAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -45,8 +46,8 @@ class DefaultController extends Controller
 //        $pagerPost = new Pagerfanta($adapter);
 //        $pagerPost->setMaxPerPage(7);
         return $this->render('BlogBlogBundle:Default:index.html.twig', array(
-           'posts' => $posts,
-           'category' => $categoryTitle,
+            'posts' => $posts,
+            'category' => $categoryTitle,
         ));
 
     }
@@ -97,6 +98,26 @@ class DefaultController extends Controller
 //        $posts = $this->container->get('blog_blog_bundle.post.repository');
 //    }
 
+    public function createPostAction()
+    {
+        $post = new Post();
+
+        $form = $this->createForm(new PostType(), $post);
+
+        $form->handleRequest($this->getRequest());
+        if ($form->isValid()) {
+            $om = $this->getDoctrine()->getManager();
+            $om->persist($form->getData());
+            $om->flush();
+
+            return $this->redirect($this->generateUrl('home_page'));
+        }
+
+        return $this->render('BlogBlogBundle:Default:post.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
     public function createCommentAction($post_id)
     {
         $post = $this->getPost($post_id);
@@ -111,7 +132,7 @@ class DefaultController extends Controller
             $om->flush();
 
             return $this->redirect($this->generateUrl('show_post_page', array(
-                'id' => $comment->getPost()->getId())) .
+                    'id' => $comment->getPost()->getId())) .
                 '#comment-' . $comment->getId());
         }
 

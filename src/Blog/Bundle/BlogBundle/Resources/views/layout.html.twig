@@ -31,8 +31,23 @@
                         <li class="active"><a href="{{ path('home_page') }}">Home</a></li>
                         <li><a href="{{ path('about_page') }}">About</a></li>
                         <li><a href="{{ path('guestbook') }}">Guestbook</a></li>
+                        <li><a href="{{ path('post_new') }}">Add Post</a></li>
                     </ul>
+                    <div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'layout.logged_in_as'|trans({}, 'FOSUserBundle') }} <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> |
+                            <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                        {% else %}
+                            <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a> |
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}
+                    </div>
+                    </div>
                 </div>
+            </div>
+
+            <div>
+                {% block container %}{% endblock container %}
             </div>
         </div>
 

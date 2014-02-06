@@ -34,11 +34,8 @@ class Post
     private $title;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=100)
-     * @Assert\NotBlank
-     * @Assert\Length(min="13", max="100")
+     * @ORM\ManyToOne(targetEntity="Blog\Bundle\UserBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $author;
 

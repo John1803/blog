@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -78,3 +78,8 @@ stof_doctrine_extensions:
         default:
             sluggable: true
             timestampable: true
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Blog\Bundle\UserBundle\Entity\User
